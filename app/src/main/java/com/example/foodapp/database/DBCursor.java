@@ -1,12 +1,13 @@
 package com.example.foodapp.database;
 
+import android.database.Cursor;
 import android.database.CursorWrapper;
 
 import com.example.foodapp.models.FoodItem;
 
 public class DBCursor extends CursorWrapper {
 
-    public DBCursor(DBCursor cursor) {
+    public DBCursor(Cursor cursor) {
         super(cursor);
     }
 
@@ -19,7 +20,7 @@ public class DBCursor extends CursorWrapper {
         int foodImageRef = getInt(getColumnIndex(FoodDeliverySchema.ResturantTable.Cols.FOOD_IMAGE_REF));
 
         return new FoodItem(resturantID, resturantName, foodName, price, foodDesc, foodImageRef);
-
     }
+
 
 }
