@@ -66,18 +66,17 @@
             android:text="1"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/addToCartBtn"
-            app:layout_constraintEnd_toStartOf="@+id/increaseQuantityBtn"
+            app:layout_constraintEnd_toStartOf="@+id/checkoutIncreaseBtn"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/reduceQuantityBtn"
+            app:layout_constraintStart_toEndOf="@+id/checkoutReduceBtn"
             app:layout_constraintTop_toBottomOf="@+id/selectedResturant"
             app:layout_constraintVertical_bias="0.392" />
 
         <Button
-            android:id="@+id/reduceQuantityBtn"
+            android:id="@+id/checkoutReduceBtn"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/rounded_button"
-            android:text="-"
+            android:background="@drawable/ic_baseline_remove_circle_24"
             android:textSize="30dp"
             app:layout_constraintBottom_toTopOf="@+id/addToCartBtn"
             app:layout_constraintEnd_toStartOf="@+id/quantityText"
@@ -86,17 +85,16 @@
             app:layout_constraintVertical_bias="0.38" />
 
         <Button
-            android:id="@+id/increaseQuantityBtn"
+            android:id="@+id/checkoutIncreaseBtn"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:text="+"
             android:textSize="30dp"
             app:layout_constraintBottom_toTopOf="@+id/addToCartBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/quantityText"
             app:layout_constraintTop_toBottomOf="@+id/selectedResturant"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/ic_baseline_add_circle_24"
             app:layout_constraintVertical_bias="0.379" />
 
         <TextView
@@ -112,7 +110,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reduceQuantityBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/checkoutReduceBtn" />
 
         <TextView
             android:id="@+id/amountText"
@@ -126,7 +124,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/totalText"
-            app:layout_constraintTop_toBottomOf="@+id/increaseQuantityBtn" />
+            app:layout_constraintTop_toBottomOf="@+id/checkoutIncreaseBtn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

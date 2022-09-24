@@ -15,11 +15,12 @@ public class DBCursor extends CursorWrapper {
         int resturantID = getInt(getColumnIndex(FoodDeliverySchema.ResturantTable.Cols.RESTURANT_ID));
         String resturantName = getString(getColumnIndex(FoodDeliverySchema.ResturantTable.Cols.RESTURANT_NAME));
         String foodName = getString(getColumnIndex(FoodDeliverySchema.ResturantTable.Cols.FOOD_ITEM));
-        float price = getFloat(getColumnIndex(FoodDeliverySchema.ResturantTable.Cols.PRICE));
+        int price = getInt(getColumnIndex(FoodDeliverySchema.ResturantTable.Cols.PRICE));
         String foodDesc = getString(getColumnIndex(FoodDeliverySchema.ResturantTable.Cols.DESCRIPTION));
         int foodImageRef = getInt(getColumnIndex(FoodDeliverySchema.ResturantTable.Cols.FOOD_IMAGE_REF));
+        int resturantImageRef = getInt(getColumnIndex(FoodDeliverySchema.ResturantTable.Cols.RESTURANT_LOGO_REF));
 
-        return new FoodItem(resturantID, resturantName, foodName, price, foodDesc, foodImageRef);
+        return new FoodItem(resturantID, resturantName, foodName, price, foodDesc, foodImageRef, resturantImageRef);
     }
 
 

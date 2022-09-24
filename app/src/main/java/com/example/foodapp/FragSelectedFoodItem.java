@@ -13,10 +13,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.foodapp.logic.CheckoutCartList;
+import com.example.foodapp.models.CartItem;
 import com.example.foodapp.models.FoodItem;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,8 +34,12 @@ public class FragSelectedFoodItem extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private FoodItem foodItem;
 
+
+    private final String INCREASE = "increase";
+    private final String DECREASE = "decrease";
+
+    private FoodItem foodItem;
     private ImageView foodImage;
     private TextView foodName;
     private TextView resturantName;
@@ -43,7 +48,6 @@ public class FragSelectedFoodItem extends Fragment {
     private  Button increaseQuantity;
     private  Button decreaseQuantity;
     private Button addToCart;
-
     private int currentQuantity = 1; // this is the default quantity
     private float currentTotal;
     private float originalPrice;
@@ -99,8 +103,8 @@ public class FragSelectedFoodItem extends Fragment {
         resturantName = view.findViewById(R.id.selectedResturant);
         totalCost = view.findViewById(R.id.amountText);
         quantity = view.findViewById(R.id.quantityText);
-        increaseQuantity = view.findViewById(R.id.increaseQuantityBtn);
-        decreaseQuantity = view.findViewById(R.id.reduceQuantityBtn);
+        increaseQuantity = view.findViewById(R.id.checkoutIncreaseBtn);
+        decreaseQuantity = view.findViewById(R.id.checkoutReduceBtn);
         addToCart = view.findViewById(R.id.addToCartBtn);
 
         setContentFromFoodObject();
@@ -109,7 +113,7 @@ public class FragSelectedFoodItem extends Fragment {
         increaseQuantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                adjustQuantity("increase");
+                adjustQuantity(INCREASE);
 
             }
         });
@@ -117,7 +121,7 @@ public class FragSelectedFoodItem extends Fragment {
         decreaseQuantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                adjustQuantity("decrease");
+                adjustQuantity(DECREASE);
 
             }
         });
@@ -127,6 +131,7 @@ public class FragSelectedFoodItem extends Fragment {
             public void onClick(View view) {
                 // call all to cart handler also
                 updateCheckoutBadge(view);
+                addCartToHandler();
             }
         });
     }
@@ -173,6 +178,13 @@ public class FragSelectedFoodItem extends Fragment {
         // then add the cart object to the arraylist in checkout
         // so that it can display it
         // there should also be a number that pops up in the cart
+
+        String foodName = foodItem.getFoodName();
+        String resturant = foodItem.getResturantName();
+        int image = foodItem.getFoodImageRef();
+
+        CartItem item = new CartItem(image, foodName, resturant, currentQuantity, (int)currentTotal, (int)originalPrice);
+        CheckoutCartList.addToCart(item);
 
     }
 

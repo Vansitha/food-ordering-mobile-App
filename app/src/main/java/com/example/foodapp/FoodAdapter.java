@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodapp.logic.HomeFragFoodList;
@@ -19,7 +17,6 @@ import com.example.foodapp.models.FoodItem;
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodCardViewHolder> {
 
     private Context context;
-    //ArrayList<FoodItem> foodItems;
     private HomeFragFoodList homeFragFoodList;
 
     public FoodAdapter(Context context, HomeFragFoodList homeFragFoodList) {
@@ -71,11 +68,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodCardViewHo
 
         public FoodCardViewHolder(@NonNull View itemView) {
             super(itemView);
-            foodImageView = itemView.findViewById(R.id.foodImageView);
-            foodName = itemView.findViewById(R.id.foodNameText);
+            foodImageView = itemView.findViewById(R.id.checkoutFoodImage);
+            foodName = itemView.findViewById(R.id.checkoutFoodName);
             foodDesc = itemView.findViewById(R.id.foodDescText);
-            resturant = itemView.findViewById(R.id.resturantNameText);
-            price = itemView.findViewById(R.id.priceText);
+            resturant = itemView.findViewById(R.id.checkoutResturantName);
+            price = itemView.findViewById(R.id.checkoutItemPrice);
 
         }
     }

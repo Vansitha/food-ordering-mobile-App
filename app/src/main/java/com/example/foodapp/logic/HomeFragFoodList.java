@@ -1,7 +1,10 @@
 package com.example.foodapp.logic;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.foodapp.R;
 import com.example.foodapp.database.DBCursor;
@@ -15,12 +18,15 @@ public class HomeFragFoodList {
     private ArrayList<FoodItem> foodItems = new ArrayList<>();
     private SQLiteDatabase db;
 
-    public HomeFragFoodList() {
-        initilizeData();
+    public HomeFragFoodList(Context context) {
+        this.db = new DBHelper(context.getApplicationContext()).getWritableDatabase();
+        if (DatabaseUtils.queryNumEntries(db, ResturantTable.NAME) == 0) {
+            insertDataToResturantTable();
+        }
     }
 
-    public void load(Context context) {
-        this.db = new DBHelper(context.getApplicationContext()).getWritableDatabase();
+    // fix cursor
+    public void load() {
         DBCursor cursor = new DBCursor(
                 db.query(ResturantTable.NAME,
                         null,
@@ -33,7 +39,7 @@ public class HomeFragFoodList {
 
         try {
             cursor.moveToFirst();
-            while(!cursor.isAfterLast()) {
+            while(!cursor.isAfterLast()){
                 foodItems.add(cursor.getFoodItem());
                 cursor.moveToNext();
             }
@@ -41,7 +47,7 @@ public class HomeFragFoodList {
         finally {
             cursor.close();
         }
-    }
+   }
 
     public int size() {
         return  foodItems.size();
@@ -51,28 +57,28 @@ public class HomeFragFoodList {
         return foodItems.get(i);
     }
 
-    private void initilizeData() {
+    public void insertDataToResturantTable() {
         String[] resturantNames = {"KFC", "MC Donald's", "Burger King", "Dunkin Donut", "Popeye's",
                 "Subway", "Pizza Hut", "Taco Bell", "Baskin Robins", "Starbucks"};
 
         String[] foodItemNames = {"Biryani", "Chicken Nuggets", "Chicken Rice", "Chocolate Sundae",
                 "Cola", "Crisp Chicken", "Fries", "Happy Meal", "Oreo MFlurry", "Burger"};
 
-        int[] foodImages = {R.drawable.mc_chicken_biryani, R.drawable.mc_chicken_nuggets, R.drawable.mc_chicken_rice,
-                R.drawable.mc_chocolate_sundae, R.drawable.mc_cola, R.drawable.mc_crisp_chicken, R.drawable.mc_fry,
-                R.drawable.mc_happy_meals, R.drawable.mc_oreo_mcflurry, R.drawable.burger};
+        int[] foodImages = {R.drawable.cheese_lovers};
 
         int totalResturant = 10;
 
-        for (int i = 0; i < totalResturant; i++) {
-            int id = i + 1;
-            String resturant = resturantNames[i];
-            String food = foodItemNames[i];
-            int foodImage = R.drawable.burger;
-            String foodDesc = "This is a test description";
-            float price = 10F;
-            FoodItem foodItem = new FoodItem(id, resturant, food, price, foodDesc, foodImage);
-            foodItems.add(foodItem);
+        ContentValues cv;
+        for(int i = 0; i < totalResturant ; i++) {
+            cv = new ContentValues();
+            cv.put(ResturantTable.Cols.RESTURANT_ID, i + 1);
+            cv.put(ResturantTable.Cols.RESTURANT_NAME, resturantNames[i]);
+            cv.put(ResturantTable.Cols.FOOD_ITEM, foodItemNames[i]);
+            cv.put(ResturantTable.Cols.PRICE, 10);
+            cv.put(ResturantTable.Cols.DESCRIPTION, "This is a test desc");
+            cv.put(ResturantTable.Cols.FOOD_IMAGE_REF, foodImages[0]);
+            cv.put(ResturantTable.Cols.RESTURANT_LOGO_REF, foodImages[0]);
+            db.insert(ResturantTable.NAME, null, cv);
         }
     }
 

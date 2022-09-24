@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="2dp"
@@ -27,33 +28,23 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/default_card_text_food_item"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/checkoutFoodImage"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/foodDescText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/default_card_text_item_desc"
-        app:layout_constraintBottom_toTopOf="@+id/checkoutResturantName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/checkoutFoodName"
-        app:layout_constraintTop_toBottomOf="@+id/checkoutFoodName" />
 
     <TextView
         android:id="@+id/checkoutItemPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/default_card_text_cost"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/checkoutResturantName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
+        app:layout_constraintStart_toEndOf="@+id/checkoutFoodName"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/checkoutResturantName"
@@ -62,9 +53,43 @@
         android:layout_marginStart="16dp"
         android:text="@string/default_card_text_resturant"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/checkoutItemPrice"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/checkoutFoodImage"
-        app:layout_constraintTop_toBottomOf="@+id/foodDescText" />
+        app:layout_constraintTop_toBottomOf="@+id/checkoutFoodName"
+        app:layout_constraintVertical_bias="0.13999999" />
+
+    <Button
+        android:id="@+id/checkoutReduceBtn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="112dp"
+        android:background="@drawable/ic_baseline_remove_circle_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/checkoutResturantName"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutItemPrice"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <TextView
+        android:id="@+id/checkoutItemQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/checkoutIncreaseBtn"
+        app:layout_constraintStart_toEndOf="@+id/checkoutReduceBtn"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutItemPrice"
+        app:layout_constraintVertical_bias="0.826" />
+
+    <Button
+        android:id="@+id/checkoutIncreaseBtn"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/ic_baseline_add_circle_24"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutItemPrice"
+        app:layout_constraintVertical_bias="0.666" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

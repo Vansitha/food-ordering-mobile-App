@@ -5,17 +5,19 @@ public class FoodItem {
     int resturantID;
     String resturantName;
     String foodName;
-    float price;
+    int price;
     String foodDesc;
     int foodImageRef;
+    int resturantImageRef;
 
-    public FoodItem(int resturantID, String resturantName, String foodName, float price, String foodDesc, int foodImageRef) {
+    public FoodItem(int resturantID, String resturantName, String foodName, int price, String foodDesc, int foodImageRef, int resturantImageRef) {
         this.resturantID = resturantID;
         this.resturantName = resturantName;
         this.foodName = foodName;
         this.price = price;
         this.foodDesc = foodDesc;
         this.foodImageRef = foodImageRef;
+        this.resturantImageRef = resturantImageRef;
     }
 
     public int getResturantID() {
@@ -30,7 +32,7 @@ public class FoodItem {
         return foodName;
     }
 
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -41,4 +43,8 @@ public class FoodItem {
     public int getFoodImageRef() {
         return foodImageRef;
     }
+
+    public int getResturantImageRef() {
+        return  resturantImageRef;
+    };
 }
