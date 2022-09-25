@@ -11,17 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.foodapp.logic.HomeFragFoodList;
 import com.example.foodapp.models.FoodItem;
+
+import java.util.ArrayList;
 
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodCardViewHolder> {
 
     private Context context;
-    private HomeFragFoodList homeFragFoodList;
+    private ArrayList<FoodItem> foodList;
 
-    public FoodAdapter(Context context, HomeFragFoodList homeFragFoodList) {
+    public FoodAdapter(Context context, ArrayList<FoodItem> foodList) {
         this.context = context;
-        this.homeFragFoodList = homeFragFoodList;
+        this.foodList = foodList;
     }
 
     @NonNull
@@ -33,7 +34,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodCardViewHo
 
     @Override
     public void onBindViewHolder(@NonNull FoodCardViewHolder holder, int position) {
-        FoodItem item = homeFragFoodList.get(position);
+        FoodItem item = foodList.get(position);
         holder.foodImageView.setImageResource(item.getFoodImageRef());
         holder.foodName.setText(item.getFoodName());
         holder.foodDesc.setText(item.getFoodDesc());
@@ -55,7 +56,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodCardViewHo
 
     @Override
     public int getItemCount() {
-        return homeFragFoodList.size();
+        return foodList.size();
     }
 
     public static class FoodCardViewHolder extends RecyclerView.ViewHolder {
@@ -68,10 +69,10 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodCardViewHo
 
         public FoodCardViewHolder(@NonNull View itemView) {
             super(itemView);
-            foodImageView = itemView.findViewById(R.id.checkoutFoodImage);
+            foodImageView = itemView.findViewById(R.id.browseResturantImage);
             foodName = itemView.findViewById(R.id.checkoutFoodName);
             foodDesc = itemView.findViewById(R.id.foodDescText);
-            resturant = itemView.findViewById(R.id.checkoutResturantName);
+            resturant = itemView.findViewById(R.id.browseResturantName);
             price = itemView.findViewById(R.id.checkoutItemPrice);
 
         }

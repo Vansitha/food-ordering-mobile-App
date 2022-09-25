@@ -12,40 +12,43 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.foodapp.logic.CheckoutCartList;
-import com.example.foodapp.logic.HomeFragFoodList;
+import com.example.foodapp.models.FoodItem;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
-public class FragBrowse extends Fragment {
+public class FragResturantMenu extends Fragment {
 
     RecyclerView recyclerView;
-    HomeFragFoodList foodList;
+    ArrayList<FoodItem> foodList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        foodList = new HomeFragFoodList(getActivity());
-        foodList.load();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_browse, container, false);
+        return inflater.inflate(R.layout.fragment_frag_resturant_menu, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.browseRecyclerView);
+        recyclerView = view.findViewById(R.id.resturantMenuRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
-        BrowseAdapter myAdapter = new BrowseAdapter(getContext(), foodList);
+        FoodAdapter myAdapter = new FoodAdapter(getContext(), foodList);
         recyclerView.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
+    }
+
+    public void setFoodList(ArrayList<FoodItem> foodList) {
+        this.foodList = foodList;
     }
 }

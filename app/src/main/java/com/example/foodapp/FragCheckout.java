@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -59,6 +60,15 @@ public class FragCheckout extends Fragment {
 
         // add an onclick listener to the checkout button to trigger login activity
         // do it the way you want
+        checkoutButton.setOnClickListener(new View.OnClickListener() {  //  onclick listener to the checkout button to trigger login activity
+            @Override
+            public void onClick(View v) {
+
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                FragLogIN login = new FragLogIN();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.contentArea, login).commit();
+            }
+        });
 
     }
 

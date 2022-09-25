@@ -18,6 +18,16 @@ public class HomeFragFoodList {
     private ArrayList<FoodItem> foodItems = new ArrayList<>();
     private SQLiteDatabase db;
 
+    private String[] resturantNames = {"KFC", "MC Donald's", "Burger King", "Dunkin Donut", "Popeye's",
+            "Subway", "Pizza Hut", "Taco Bell", "Baskin Robins", "Starbucks"};
+
+    private String[] foodItemNames = {"Biryani", "Chicken Nuggets", "Chicken Rice", "Chocolate Sundae",
+            "Cola", "Crisp Chicken", "Fries", "Happy Meal", "Oreo MFlurry", "Burger"};
+
+    private int[] foodImages = {R.drawable.cheese_lovers};
+
+    private int[] resturantImages = {R.drawable.kfc_logo};
+
     public HomeFragFoodList(Context context) {
         this.db = new DBHelper(context.getApplicationContext()).getWritableDatabase();
         if (DatabaseUtils.queryNumEntries(db, ResturantTable.NAME) == 0) {
@@ -25,7 +35,6 @@ public class HomeFragFoodList {
         }
     }
 
-    // fix cursor
     public void load() {
         DBCursor cursor = new DBCursor(
                 db.query(ResturantTable.NAME,
@@ -57,19 +66,14 @@ public class HomeFragFoodList {
         return foodItems.get(i);
     }
 
+    public ArrayList<FoodItem> getFoodList() {
+        return foodItems;
+    }
+
     public void insertDataToResturantTable() {
-        String[] resturantNames = {"KFC", "MC Donald's", "Burger King", "Dunkin Donut", "Popeye's",
-                "Subway", "Pizza Hut", "Taco Bell", "Baskin Robins", "Starbucks"};
-
-        String[] foodItemNames = {"Biryani", "Chicken Nuggets", "Chicken Rice", "Chocolate Sundae",
-                "Cola", "Crisp Chicken", "Fries", "Happy Meal", "Oreo MFlurry", "Burger"};
-
-        int[] foodImages = {R.drawable.cheese_lovers};
-
-        int totalResturant = 10;
 
         ContentValues cv;
-        for(int i = 0; i < totalResturant ; i++) {
+        for(int i = 0; i < resturantNames.length ; i++) {
             cv = new ContentValues();
             cv.put(ResturantTable.Cols.RESTURANT_ID, i + 1);
             cv.put(ResturantTable.Cols.RESTURANT_NAME, resturantNames[i]);
@@ -77,7 +81,7 @@ public class HomeFragFoodList {
             cv.put(ResturantTable.Cols.PRICE, 10);
             cv.put(ResturantTable.Cols.DESCRIPTION, "This is a test desc");
             cv.put(ResturantTable.Cols.FOOD_IMAGE_REF, foodImages[0]);
-            cv.put(ResturantTable.Cols.RESTURANT_LOGO_REF, foodImages[0]);
+            cv.put(ResturantTable.Cols.RESTURANT_LOGO_REF, resturantImages[0]);
             db.insert(ResturantTable.NAME, null, cv);
         }
     }

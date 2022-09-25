@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Vansitha/Desktop/foodApp/app/src/main/res/layout/fragment_frag_resturant_menu.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/Vansitha/Desktop/foodApp/app/src/main/res/layout/fragment_log_in.xml" value="0.1675929884566054" />
         <entry key="..\:/foodApp/app/src/main/res/drawable/border.xml" value="0.135" />
         <entry key="..\:/foodApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2115" />
         <entry key="..\:/foodApp/app/src/main/res/drawable/rounded_button.xml" value="0.202" />
@@ -12,11 +14,13 @@
         <entry key="..\:/foodApp/app/src/main/res/layout/food_item_card.xml" value="0.33" />
         <entry key="..\:/foodApp/app/src/main/res/layout/foodlist.xml" value="0.1675929884566054" />
         <entry key="..\:/foodApp/app/src/main/res/layout/fragment_account.xml" value="0.33" />
-        <entry key="..\:/foodApp/app/src/main/res/layout/fragment_browse.xml" value="0.16" />
+        <entry key="..\:/foodApp/app/src/main/res/layout/fragment_browse.xml" value="0.2" />
         <entry key="..\:/foodApp/app/src/main/res/layout/fragment_checkout.xml" value="0.25" />
+        <entry key="..\:/foodApp/app/src/main/res/layout/fragment_frag_resturant_menu.xml" value="0.25" />
         <entry key="..\:/foodApp/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/foodApp/app/src/main/res/layout/fragment_orders.xml" value="0.1675929884566054" />
         <entry key="..\:/foodApp/app/src/main/res/layout/fragment_selected_food_item.xml" value="0.22" />
+        <entry key="..\:/foodApp/app/src/main/res/layout/resturant_card.xml" value="0.33" />
         <entry key="..\:/foodApp/app/src/main/res/menu/menu.xml" value="0.5" />
       </map>
     </option>

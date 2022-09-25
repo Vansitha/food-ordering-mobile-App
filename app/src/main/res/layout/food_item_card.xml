@@ -9,7 +9,7 @@
     app:barrierMargin="10dp">
 
     <ImageView
-        android:id="@+id/checkoutFoodImage"
+        android:id="@+id/browseResturantImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:contentDescription="@string/image_default_text"
@@ -29,7 +29,7 @@
         android:text="@string/default_card_text_food_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/checkoutFoodImage"
+        app:layout_constraintStart_toEndOf="@+id/browseResturantImage"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/default_card_text_item_desc"
-        app:layout_constraintBottom_toTopOf="@+id/checkoutResturantName"
+        app:layout_constraintBottom_toTopOf="@+id/browseResturantName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/checkoutFoodName"
@@ -50,13 +50,13 @@
         android:layout_marginEnd="8dp"
         android:text="@string/default_card_text_cost"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/checkoutResturantName"
+        app:layout_constraintBottom_toBottomOf="@+id/browseResturantName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/checkoutResturantName"
+        android:id="@+id/browseResturantName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -64,7 +64,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/checkoutItemPrice"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/checkoutFoodImage"
+        app:layout_constraintStart_toEndOf="@+id/browseResturantImage"
         app:layout_constraintTop_toBottomOf="@+id/foodDescText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

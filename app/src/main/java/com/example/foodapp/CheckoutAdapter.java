@@ -32,7 +32,7 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.Checko
     @Override
     public void onBindViewHolder(@NonNull CheckoutItemViewHolder holder, int position) {
         CartItem item = CheckoutCartList.getCheckoutItem(position);
-        holder.foodImageView.setImageResource(R.drawable.cheese_lovers);
+        holder.foodImageView.setImageResource(item.getFoodItemImage());
         holder.foodName.setText(item.getFoodName());
         holder.resturant.setText(item.getResturantName());
         holder.price.setText(Float.toString(item.getTotal()));
@@ -57,7 +57,7 @@ public class CheckoutAdapter extends RecyclerView.Adapter<CheckoutAdapter.Checko
 
         public CheckoutItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            foodImageView = itemView.findViewById(R.id.checkoutFoodImage);
+            foodImageView = itemView.findViewById(R.id.checkoutResturantImage);
             foodName = itemView.findViewById(R.id.checkoutFoodName);
             resturant = itemView.findViewById(R.id.checkoutResturantName);
             quantity = itemView.findViewById(R.id.checkoutItemQuantity);

@@ -46,7 +46,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 ResturantTable.Cols.DESCRIPTION + " TEXT, " +
                 ResturantTable.Cols.FOOD_IMAGE_REF + " INTEGER, " +
                 ResturantTable.Cols.RESTURANT_LOGO_REF + " INTEGER)");
-
     }
 
 
