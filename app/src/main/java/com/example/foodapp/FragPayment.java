@@ -5,19 +5,18 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragSignup1#newInstance} factory method to
+ * Use the {@link FragPayment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragSignup1 extends Fragment {
+public class FragPayment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +27,7 @@ public class FragSignup1 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragSignup1() {
+    public FragPayment() {
         // Required empty public constructor
     }
 
@@ -38,11 +37,11 @@ public class FragSignup1 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragSignUp1.
+     * @return A new instance of fragment FragPayment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragSignup1 newInstance(String param1, String param2) {
-        FragSignup1 fragment = new FragSignup1();
+    public static FragPayment newInstance(String param1, String param2) {
+        FragPayment fragment = new FragPayment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,53 +61,29 @@ public class FragSignup1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view;
-        Button nextBtn;
-        EditText FName,LName,Address;
+        TextView Msg;
+        Button Btn;
+        String Text;
 
+        view = inflater.inflate(R.layout.fragment_payment, container, false);
 
-        view    = inflater.inflate(R.layout.fragment_sign_up1, container, false);
-        nextBtn = (Button) view.findViewById(R.id.Nextbutton);
-        FName   = (EditText) view.findViewById(R.id.PersonName1);
-        LName   = (EditText) view.findViewById(R.id.PersonName2);
-        Address = (EditText) view.findViewById(R.id.PostalAddress);
+        Msg = view.findViewById(R.id.ThankMsg);
+        Btn = view.findViewById(R.id.DoneBtn);
 
+        Text = "Payment successful\n\nThank you for ordering\n\nEnjoy your meals :)";
+        Msg.setText(Text);
 
-        nextBtn.setOnClickListener(new View.OnClickListener() {
+        Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String FirstName,LastName,UserAddress;
-                Editable edit;
+                //Delete the Items in the checkout list
 
-                edit = FName.getText();
-                FirstName = edit.toString();
-
-                edit = LName.getText();
-                LastName = edit.toString();
-
-                edit = Address.getText();
-                UserAddress = edit.toString();
-
-                CommonData.setFirstName(FirstName);
-                CommonData.setLastName(LastName);
-                CommonData.setAddress(UserAddress);
-
-                if(!FirstName.equals("") && !LastName.equals("") && !UserAddress.equals("")){
-
-                    FragSignup2 S2 = new FragSignup2();
-                    FragmentTransaction FT = getFragmentManager().beginTransaction();
-                    FT.replace(R.id.contentArea,S2).commit();
-
-                }
-                else{
-                    //Do nothing
-                }
-
-
+                FragCheckout FH = new FragCheckout();
+                FragmentTransaction Ft = getFragmentManager().beginTransaction();
+                Ft.replace(R.id.contentArea,FH).commit();
             }
         });
-
 
         return view;
     }

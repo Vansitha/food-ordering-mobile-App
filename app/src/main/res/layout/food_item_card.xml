@@ -34,12 +34,11 @@
 
     <TextView
         android:id="@+id/foodDescText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/default_card_text_item_desc"
         app:layout_constraintBottom_toTopOf="@+id/browseResturantName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/checkoutItemPrice"
         app:layout_constraintStart_toStartOf="@+id/checkoutFoodName"
         app:layout_constraintTop_toBottomOf="@+id/checkoutFoodName" />
 

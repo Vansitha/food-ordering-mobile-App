@@ -53,7 +53,7 @@ public class FragSelectedFoodItem extends Fragment {
     private float originalPrice;
     private final int maxQuantity = 10;
     private final int minQuantity = 1;
-    private static int notificationBadgeNumber = 0;
+    public static int notificationBadgeNumber = 0;
 
     public FragSelectedFoodItem() {
         // Required empty public constructor

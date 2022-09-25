@@ -3,8 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Vansitha/Desktop/foodApp/app/src/main/res/layout/checkout_item_card.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/Vansitha/Desktop/foodApp/app/src/main/res/layout/food_item_card.xml" value="0.67" />
+        <entry key="..\:/Users/Vansitha/Desktop/foodApp/app/src/main/res/layout/fragment_checkout.xml" value="0.25" />
         <entry key="..\:/Users/Vansitha/Desktop/foodApp/app/src/main/res/layout/fragment_frag_resturant_menu.xml" value="0.1675929884566054" />
         <entry key="..\:/Users/Vansitha/Desktop/foodApp/app/src/main/res/layout/fragment_log_in.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/Vansitha/Desktop/foodApp/app/src/main/res/layout/fragment_signup2.xml" value="0.22" />
+        <entry key="..\:/Users/Vansitha/Desktop/foodApp/app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="..\:/Users/Vansitha/Desktop/test/foodApp/app/src/main/res/layout-sw600dp/fragment_signup2.xml" value="0.15" />
+        <entry key="..\:/Users/Vansitha/Desktop/test/foodApp/app/src/main/res/layout/fragment_log_in.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/Vansitha/Desktop/test/foodApp/app/src/main/res/layout/fragment_orders.xml" value="0.19" />
+        <entry key="..\:/Users/Vansitha/Desktop/test/foodApp/app/src/main/res/layout/fragment_sign_up1.xml" value="0.33" />
+        <entry key="..\:/Users/Vansitha/Desktop/test/foodApp/app/src/main/res/layout/fragment_signup2.xml" value="0.1675929884566054" />
+        <entry key="..\:/Users/Vansitha/Desktop/test/foodApp/app/src/main/res/layout/fragment_user_info.xml" value="0.22" />
         <entry key="..\:/foodApp/app/src/main/res/drawable/border.xml" value="0.135" />
         <entry key="..\:/foodApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2115" />
         <entry key="..\:/foodApp/app/src/main/res/drawable/rounded_button.xml" value="0.202" />

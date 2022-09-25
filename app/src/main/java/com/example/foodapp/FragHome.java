@@ -69,6 +69,7 @@ public class FragHome extends Fragment {
         foodListObject = new HomeFragFoodList(getActivity());
         foodListObject.load();
         foodList = foodListObject.getFoodList();
+        //setRandomFoodList();
     }
 
     @Override
@@ -87,6 +88,18 @@ public class FragHome extends Fragment {
         FoodAdapter myAdapter = new FoodAdapter(getContext(), foodList);
         recyclerView.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
+
+    }
+
+    private void setRandomFoodList() {
+        for(int i = 0; i < foodListObject.size(); i++) {
+            int randomFoodItemIndex = (int)(Math.random()*(9 - 0 + 1) + 0);
+            foodList.add(foodListObject.get(randomFoodItemIndex));
+        }
+
+
+
+
 
     }
 

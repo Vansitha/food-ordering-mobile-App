@@ -39,7 +39,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodCardViewHo
         holder.foodName.setText(item.getFoodName());
         holder.foodDesc.setText(item.getFoodDesc());
         holder.resturant.setText(item.getResturantName());
-        holder.price.setText(Float.toString(item.getPrice()));
+        holder.price.setText("$ "+ Float.toString(item.getPrice()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +56,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodCardViewHo
 
     @Override
     public int getItemCount() {
-        return foodList.size();
+        return 10;
     }
 
     public static class FoodCardViewHolder extends RecyclerView.ViewHolder {

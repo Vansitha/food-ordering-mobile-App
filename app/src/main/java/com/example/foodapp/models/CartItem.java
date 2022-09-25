@@ -37,4 +37,20 @@ public class CartItem {
     public int getTotal() {
         return total;
     }
+
+    public int getOriginalPrice() {
+        return originalPrice;
+    }
+
+    public void incrementQuantity() {
+        this.quantity += 1;
+    }
+
+    public void decrementQuantity() {
+        this.quantity -= 1;
+    }
+
+    public void setNewTotal(int total) {
+        this.total = total;
+    }
 }

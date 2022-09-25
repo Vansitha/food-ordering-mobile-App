@@ -19,14 +19,23 @@ public class HomeFragFoodList {
     private SQLiteDatabase db;
 
     private String[] resturantNames = {"KFC", "MC Donald's", "Burger King", "Dunkin Donut", "Popeye's",
-            "Subway", "Pizza Hut", "Taco Bell", "Baskin Robins", "Starbucks"};
+            "Subway", "Pizza Hut", "Taco Bell", "Baskin Robbins", "Starbucks"};
 
     private String[] foodItemNames = {"Biryani", "Chicken Nuggets", "Chicken Rice", "Chocolate Sundae",
-            "Cola", "Crisp Chicken", "Fries", "Happy Meal", "Oreo MFlurry", "Burger"};
+            "Cola", "Crisp Chicken", "Fries", "submarine", "Oreo MFlurry", "Burger"};
 
-    private int[] foodImages = {R.drawable.cheese_lovers};
 
-    private int[] resturantImages = {R.drawable.kfc_logo};
+    private int[] foodImages = {R.drawable.biriyani, R.drawable.chicken_nuggets, R.drawable.chicken_rice,
+                                R.drawable.chocolate_sundae, R.drawable.cola, R.drawable.crisp_chicken,
+                                R.drawable.fries, R.drawable.submarine, R.drawable.oreo_mcflury,
+                                R.drawable.burger};
+
+    private int[] resturantImages = {R.drawable.kfc_logo, R.drawable.mcdonalds_logo, R.drawable.burger_king_logo,
+                                    R.drawable.dunkin_donuts_logo, R.drawable.popeyes_logo, R.drawable.subway_logo,
+                                    R.drawable.pizza_hut_logo, R.drawable.taco_bell_logo, R.drawable.baskin_robins_logo,
+                                    R.drawable.star_bucks_logo};
+
+    private int[] prices = {15, 10, 13, 20, 3, 15, 22, 17, 19, 21};
 
     public HomeFragFoodList(Context context) {
         this.db = new DBHelper(context.getApplicationContext()).getWritableDatabase();
@@ -58,6 +67,14 @@ public class HomeFragFoodList {
         }
    }
 
+   public int[] getResturantImageList() {
+        return resturantImages;
+   }
+
+   public String[] getResturantNameList() {
+        return resturantNames;
+   }
+
     public int size() {
         return  foodItems.size();
     }
@@ -74,15 +91,18 @@ public class HomeFragFoodList {
 
         ContentValues cv;
         for(int i = 0; i < resturantNames.length ; i++) {
-            cv = new ContentValues();
-            cv.put(ResturantTable.Cols.RESTURANT_ID, i + 1);
-            cv.put(ResturantTable.Cols.RESTURANT_NAME, resturantNames[i]);
-            cv.put(ResturantTable.Cols.FOOD_ITEM, foodItemNames[i]);
-            cv.put(ResturantTable.Cols.PRICE, 10);
-            cv.put(ResturantTable.Cols.DESCRIPTION, "This is a test desc");
-            cv.put(ResturantTable.Cols.FOOD_IMAGE_REF, foodImages[0]);
-            cv.put(ResturantTable.Cols.RESTURANT_LOGO_REF, resturantImages[0]);
-            db.insert(ResturantTable.NAME, null, cv);
+            int id = i + 1;
+            for(int j = 0 ; j < foodItemNames.length; j++) {
+                cv = new ContentValues();
+                cv.put(ResturantTable.Cols.RESTURANT_ID, id);
+                cv.put(ResturantTable.Cols.RESTURANT_NAME, resturantNames[i]);
+                cv.put(ResturantTable.Cols.FOOD_ITEM, foodItemNames[j]);
+                cv.put(ResturantTable.Cols.PRICE, prices[j]);
+                cv.put(ResturantTable.Cols.DESCRIPTION, "This is the description for " + foodItemNames[j] + " offered by " + resturantNames[i]);
+                cv.put(ResturantTable.Cols.FOOD_IMAGE_REF, foodImages[j]);
+                cv.put(ResturantTable.Cols.RESTURANT_LOGO_REF, resturantImages[i]);
+                db.insert(ResturantTable.NAME, null, cv);
+            }
         }
     }
 

@@ -2,33 +2,33 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/AccLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".FragPayment">
+
+    <!-- TODO: Update blank fragment layout -->
+
 
     <TextView
-        android:id="@+id/acc_details"
+        android:id="@+id/ThankMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Account"
-        android:textSize="20sp"
+        android:text="Messsage"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.20" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/DoneBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:text="Ok"
+        android:layout_marginTop="100dp"
+        android:text="Done"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/acc_details"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ThankMsg" />
 </androidx.constraintlayout.widget.ConstraintLayout>

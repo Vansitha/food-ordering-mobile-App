@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.text.Editable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,8 @@ public class FragLogIN extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    public String UserMail;
+
 
     /**
      * Use this factory method to create a new instance of
@@ -70,44 +73,48 @@ public class FragLogIN extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_log_in, container, false);
 
+
+
         UserEmail       = (EditText) view.findViewById(R.id.editTextEmail);
         passWD      = (EditText) view.findViewById(R.id.editTextPassword);
         LoginBtn    = (Button) view.findViewById(R.id.LoginButton);
         SignBtn     = (Button) view.findViewById(R.id.Signupbutton);
-
 
         LoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Editable edit;
-                String UserMail,UserPassWD,UserInfo;
+                String UserPassWD,UserInfo;
 
                 edit = UserEmail.getText();
                 UserMail = edit.toString();
+
 
                 edit = passWD.getText();
                 UserPassWD = edit.toString();
 
                 UserInfo = "Your Account \nEmail: "+UserMail;
 
+
                 if(!UserMail.equals("")&& !UserPassWD.equals("")){
 
                     Bundle bundle = new Bundle();
                     bundle.putString("User",UserInfo);
 
-                    FragUserInfo fUser = new FragUserInfo();
-                    fUser.setArguments(bundle);
+                    FragCheckout fCheck = new FragCheckout();
+                    //fUser.setArguments(bundle);
 
                     FragmentTransaction Ft = getFragmentManager().beginTransaction();
-                    Ft.replace(R.id.contentArea,fUser).commit();
+                    Ft.replace(R.id.contentArea,fCheck).commit();
+
+                    CommonData.setLoginStatus(1);
+                    CommonData.setLoginEmail(UserMail);
 
                 }
                 else{
                      //Do nothing
                 }
-
-
 
                 /*Bundle bundle = new Bundle();
                 bundle.putString("userDetails",UserDetails);
@@ -134,5 +141,10 @@ public class FragLogIN extends Fragment {
 
         return view;
     }
+
+
+
+
+
 
 }

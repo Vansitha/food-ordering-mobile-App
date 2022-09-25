@@ -21,10 +21,14 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.ResturantI
     private Context context;
     private ArrayList<FoodItem> selectedResturantFoodItems = new ArrayList<>();
     private HomeFragFoodList homeFragFoodList;
+    private int[] resturantImageList;
+    private String[] resturantNameList;
 
     public BrowseAdapter(Context context, HomeFragFoodList homeFragFoodList) {
         this.context = context;
         this.homeFragFoodList = homeFragFoodList;
+        this.resturantImageList = homeFragFoodList.getResturantImageList();
+        this.resturantNameList = homeFragFoodList.getResturantNameList();
     }
 
     @NonNull
@@ -36,9 +40,9 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.ResturantI
 
     @Override
     public void onBindViewHolder(@NonNull ResturantItemViewHolder holder, int position) {
-        FoodItem item = homeFragFoodList.get(position);
-        holder.resturantImage.setImageResource(item.getResturantImageRef());
-        holder.resturantName.setText(item.getResturantName());
+        String resturantName = resturantNameList[position];
+        holder.resturantImage.setImageResource(resturantImageList[position]);
+        holder.resturantName.setText(resturantNameList[position]);
 
         // set an on click listener here
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +51,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.ResturantI
                 // create a list with the name of the resturant only
                 ArrayList<FoodItem> foodlist = homeFragFoodList.getFoodList();
                 for(FoodItem foodItem: foodlist) {
-                    if(foodItem.getResturantName().equals(item.getResturantName())) {
+                    if(foodItem.getResturantName().equals(resturantName)) {
                         FoodItem itemFromResturant = new FoodItem(
                                 foodItem.getResturantID(),
                                 foodItem.getResturantName(),
@@ -72,7 +76,7 @@ public class BrowseAdapter extends RecyclerView.Adapter<BrowseAdapter.ResturantI
 
     @Override
     public int getItemCount() {
-        return homeFragFoodList.size();
+        return resturantNameList.length;
     }
 
     public static class ResturantItemViewHolder extends RecyclerView.ViewHolder {

@@ -27,27 +27,55 @@ public class FragAccount extends Fragment {
         TextView UserAcc;
         Button Btn1;
         String noLogin;
+        int Status;
 
         view = inflater.inflate(R.layout.fragment_account, container, false);
 
         UserAcc = (TextView) view.findViewById(R.id.acc_details);
         Btn1 = (Button) view.findViewById(R.id.button);
 
-        noLogin = "Purchase Something to login";
+        Status = CommonData.getLoginStatus();
+
+        if (Status == 0){
+
+            noLogin = "Purchase Something to login";
+            UserAcc.setText(noLogin);
+            Btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    FragHome FH = new FragHome();
+                    FragmentTransaction FT = getFragmentManager().beginTransaction();
+                    FT.replace(R.id.contentArea,FH).commit();
+                }
+            });
+        }
+        else if(Status ==1){
+            String Umail,userInfo,userDetails;
+            FragLogIN Fl = new FragLogIN();
+
+            Umail = CommonData.getLoginEmail();
+            userInfo = CommonData.getUserDetails();
+            userDetails = "Your Account \n\nEmail: "+Umail+"\n\n"+userInfo;
+            UserAcc.setText(userDetails);
+            Btn1.setText("Log Out");
+
+            Btn1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    FragLogIN FLog = new FragLogIN();
+                    FragmentTransaction Ft = getFragmentManager().beginTransaction();
+                    Ft.replace(R.id.contentArea,FLog).commit();
+                    CommonData.setLoginStatus(0);
+                }
+            });
+        }
 
 
-        UserAcc.setText(noLogin);
 
 
-        Btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                FragHome FH = new FragHome();
-                FragmentTransaction FT = getFragmentManager().beginTransaction();
-                FT.replace(R.id.contentArea,FH).commit();
-            }
-        });
 
 
         return view;

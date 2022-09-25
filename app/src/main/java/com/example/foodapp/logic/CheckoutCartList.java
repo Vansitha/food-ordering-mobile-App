@@ -20,8 +20,8 @@ public class CheckoutCartList {
         checkoutList.add(item);
     }
 
-    static public void removeFromCart(CartItem item) {
-        checkoutList.remove(item);
+    static public void removeFromCart(int position) {
+        checkoutList.remove(position);
     }
 
     static public ArrayList<CartItem> getCheckoutList() {
