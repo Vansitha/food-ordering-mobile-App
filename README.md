@@ -1,6 +1,6 @@
 # Food Ordering Application
 
-Your typical food ordering application.
+Your typical food ordering application. But with most of the bells and whistles removed.
 
 ### Screenshot
 
